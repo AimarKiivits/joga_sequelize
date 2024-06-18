@@ -5,23 +5,24 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     return Promise.all([
       queryInterface.bulkInsert('Authors', [{
-        name: "Ashley Galvin"
+        name: "Ashley Galvin",
+        createdAt: new Date(),
+        updatedAt: new Date()
       }]),
       queryInterface.bulkInsert('Authors', [{
-        name: "Patrick Beach"
+        name: "Patrick Beach",
+        createdAt: new Date(),
+        updatedAt: new Date()
       }]),
       queryInterface.bulkInsert('Authors', [{
-        name: "MacKenzie MIller"
+        name: "MacKenzie Miller",
+        createdAt: new Date(),
+        updatedAt: new Date()
       }])
     ])
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+     await queryInterface.bulkDelete('Authors', null, {});
   }
 };
