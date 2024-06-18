@@ -13,6 +13,21 @@ const getAllArticles = (req, res) => {
         })
 }
 
+const getArticleBySlug = (req, res) => {
+    Article.findOne({
+        where: {
+            slug: req.params.slug
+        }
+    })
+        .then(article => {
+            return res.status(200).json({article});
+        })
+        .catch(err => {
+            return res.status(500).send(error.message);
+        })
+}
+
 module.exports = {
     getAllArticles,
+    getArticleBySlug
 };
